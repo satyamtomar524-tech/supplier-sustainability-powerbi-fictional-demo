@@ -1,0 +1,13 @@
+{
+  "result": "passed",
+  "private_label_count_min_6_chars": 281,
+  "checked_files": 69,
+  "text_matches": 0,
+  "excluded": [
+    "original Excel/PBIX",
+    "private research",
+    "Desktop caches",
+    "old archives"
+  ],
+  "scope": "Authored fictional inputs; bounded text/XML/PDF scan and visual review."
+}

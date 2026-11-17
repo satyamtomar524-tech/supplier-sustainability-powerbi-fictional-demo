@@ -1,0 +1,2 @@
+"evidence_id","LabelID","Metric","Year","Value","Unit","Scope","Source","Provenance"
+"E01","FA","Energy use",2024,1200,"MWh","Site","SIM-A-2024","Authored fictional scenario; no external source"

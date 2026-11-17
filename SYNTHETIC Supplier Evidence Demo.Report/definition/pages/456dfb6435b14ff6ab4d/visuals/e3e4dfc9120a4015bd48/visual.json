@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e3e4dfc9120a4015bd48",
+  "position": {
+    "x": 40,
+    "y": 580,
+    "z": 5840,
+    "height": 115,
+    "width": 1200,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Usable evidence: reviewed, resolved identity, site scope, explicit unit and year 2023 or later.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "fontFamily": "Segoe UI",
+                      "fontWeight": "normal",
+                      "color": "#123344"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "P1: identity/scope. P2: missing, old or unreviewed evidence. P3: usable example.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "fontFamily": "Segoe UI",
+                      "fontWeight": "normal",
+                      "color": "#35566A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Evidence rule: reviewed; resolved identity; site scope; explicit unit; 2023 or later.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

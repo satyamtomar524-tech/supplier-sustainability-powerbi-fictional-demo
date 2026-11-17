@@ -1,99 +1,76 @@
 table Evidence
-	lineageTag: e26022da-4b50-40c5-83b8-55e44dda7c72
 
-	column LabelID
+	column 'evidence_id'
 		dataType: string
-		lineageTag: 3be85b7c-cac3-447b-b05f-603d0693bdaf
-		summarizeBy: none
-		sourceColumn: LabelID
-
-	column supplier_label
-		dataType: string
-		lineageTag: 8d71e151-c927-47be-991b-d692747be6ee
-		summarizeBy: none
-		sourceColumn: supplier_label
-
-	column evidence_id
-		dataType: string
-		lineageTag: 5c89e92a-19cc-4a4f-b496-5c2bab810369
 		summarizeBy: none
 		sourceColumn: evidence_id
 
-	column claim_kind
+	column 'LabelID'
 		dataType: string
-		lineageTag: 9dc9928d-2ac9-4aa3-bcef-45d17f9ec5bc
 		summarizeBy: none
-		sourceColumn: claim_kind
+		sourceColumn: LabelID
 
-	column source_title
+	column 'Metric'
 		dataType: string
-		lineageTag: f3a8f13e-67fa-482a-8693-3e40ab52cbb7
 		summarizeBy: none
-		sourceColumn: source_title
+		sourceColumn: Metric
 
-	column URL
+	column 'Year'
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Year
+
+	column 'Value'
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Value
+
+	column 'Unit'
 		dataType: string
-		lineageTag: e49d73b5-a223-4432-965a-25f1fce1c01e
 		summarizeBy: none
-		sourceColumn: URL
+		sourceColumn: Unit
 
-	column source_publication_date
+	column 'Scope'
 		dataType: string
-		lineageTag: 052cfaad-807f-4e28-ae54-30bfaf58ec84
 		summarizeBy: none
-		sourceColumn: source_publication_date
+		sourceColumn: Scope
 
-	column reporting_period
+	column 'Source'
 		dataType: string
-		lineageTag: a902c714-d456-4b6a-b493-a15490df288a
 		summarizeBy: none
-		sourceColumn: reporting_period
+		sourceColumn: Source
 
-	column scope
+	column 'Provenance'
 		dataType: string
-		lineageTag: 335901db-3811-43a2-b7e4-960626d57a26
 		summarizeBy: none
-		sourceColumn: scope
+		sourceColumn: Provenance
 
-	column metric_key
+	column 'Assessment'
 		dataType: string
-		lineageTag: 3f6894df-730c-4dc7-9c56-2fb93bb4a65e
 		summarizeBy: none
-		sourceColumn: metric_key
+		sourceColumn: Assessment
 
-	column metric_value
+	column 'Reported value'
 		dataType: string
-		lineageTag: 96b5b246-7668-4637-b1f9-3afdd59728d0
 		summarizeBy: none
-		sourceColumn: metric_value
+		sourceColumn: Reported value
 
-	column unit
-		dataType: string
-		lineageTag: f87f2680-7b4c-402a-80ef-85ef76152075
-		summarizeBy: none
-		sourceColumn: unit
-
-	column eligible_by_cutoff
-		dataType: string
-		lineageTag: bac0286d-8b7e-4cbb-8e04-d914fda3f955
-		summarizeBy: none
-		sourceColumn: eligible_by_cutoff
-
-	column evidence_limits
-		dataType: string
-		lineageTag: b5868e52-08e9-4e80-892b-477f213a4699
-		summarizeBy: none
-		sourceColumn: evidence_limits
-
-	partition Evidence = m
+	partition 'Evidence' = m
 		mode: import
 		source =
-				let
-				    Source = #table({"LabelID", "supplier_label", "evidence_id", "claim_kind", "source_title", "URL", "source_publication_date", "reporting_period", "scope", "metric_key", "metric_value", "unit", "eligible_by_cutoff", "evidence_limits"}, {
-				        {"F001", "Fictional Alpha", "DEMO-001", "Fictional claim", "Fictional source", "", "2025-01-01", "2024", "Fictional example only", "Example", "10", "units", "TRUE", "Not a real claim"}
-				    })
-				in
-				    Source
+			let
+				Rows = #table({"evidence_id", "LabelID", "Metric", "Year", "Value", "Unit", "Scope", "Source", "Provenance", "Assessment", "Reported value"}, {
+				{"E01", "FA", "Energy use", 2024, 1200.0, "MWh", "Site", "SIM-A-2024", "Authored fictional scenario; no external source", "Usable example", "1200 MWh"},
+				{"E02", "FA", "Energy use", 2023, 1500.0, "MWh", "Site", "SIM-A-2023", "Authored fictional scenario; no external source", "Usable example", "1500 MWh"},
+				{"E03", "FB", "Energy intensity", 2024, 2.4, "kWh/unit", "Group", "SIM-B-2024", "Authored fictional scenario; no external source", "Scope mismatch", "2.4 kWh/unit"},
+				{"E04", "FC", "Energy use", 2024, 900.0, "MWh", "Site", "SIM-C-2024", "Authored fictional scenario; no external source", "Identity unresolved", "900 MWh"},
+				{"E05", "FD", "Waste recycled", 2021, 62.0, "%", "Site", "SIM-D-2021", "Authored fictional scenario; no external source", "Historical period", "62 %"},
+				{"E06", "FE", "Water withdrawal", 2024, 1800.0, "", "Site", "SIM-E-2024", "Authored fictional scenario; no external source", "Missing unit", "1800 [unit missing]"},
+				{"E07", "FG", "Waste recycled", 2024, 78.0, "%", "Site", "SIM-G-2024", "Authored fictional scenario; no external source", "Usable example", "78 %"},
+				{"E08", "FH", "Energy intensity", 2024, 1.8, "kWh/unit", "Site", "SIM-H-2024", "Authored fictional scenario; no external source", "Unreviewed", "1.8 kWh/unit"}
+				}),
+				Typed = Table.TransformColumnTypes(Rows, {{"evidence_id", type text}, {"LabelID", type text}, {"Metric", type text}, {"Year", type number}, {"Value", type number}, {"Unit", type text}, {"Scope", type text}, {"Source", type text}, {"Provenance", type text}, {"Assessment", type text}, {"Reported value", type text}})
+			in Typed
 
 	annotation PBI_ResultType = Table
-

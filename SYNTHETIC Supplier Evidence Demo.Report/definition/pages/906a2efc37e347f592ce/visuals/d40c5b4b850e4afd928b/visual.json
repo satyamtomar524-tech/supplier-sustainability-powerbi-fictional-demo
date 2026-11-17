@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "d40c5b4b850e4afd928b",
+  "position": {
+    "x": 40,
+    "y": 15,
+    "z": 90,
+    "height": 90,
+    "width": 1200,
+    "tabOrder": 600
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "SUPPLIER EVIDENCE",
+                    "textStyle": {
+                      "fontSize": "25pt",
+                      "fontFamily": "Segoe UI",
+                      "fontWeight": "bold",
+                      "color": "#123344"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "FICTIONAL SCENARIO | Select one workshop | Values remain specific to metric, period and scope",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "fontFamily": "Segoe UI",
+                      "fontWeight": "normal",
+                      "color": "#35566A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SUPPLIER EVIDENCE. FICTIONAL SCENARIO | Select one workshop | Values remain specific to metric, period and scope'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

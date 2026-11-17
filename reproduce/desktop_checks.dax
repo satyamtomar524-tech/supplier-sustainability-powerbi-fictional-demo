@@ -1,0 +1,8 @@
+// Expected Baseline: 8,6,2,6,.75. Machining:2,2,1,1,1. Finishing:2,1,0,2,.5.
+// Empty: blank,0,0,0,blank. A and H:2,1,1,1,.5.
+EVALUATE UNION(
+ ROW("Test", "Baseline", "N", [Candidate Labels], "Reviewed", [Reviewed Labels], "Usable", [Usable Labels], "FollowUp", [Follow Up Labels], "Coverage", [Review Coverage %]),
+ CALCULATETABLE(ROW("Test", "Machining", "N", [Candidate Labels], "Reviewed", [Reviewed Labels], "Usable", [Usable Labels], "FollowUp", [Follow Up Labels], "Coverage", [Review Coverage %]), Labels[Technology]="Machining"),
+ CALCULATETABLE(ROW("Test", "Finishing", "N", [Candidate Labels], "Reviewed", [Reviewed Labels], "Usable", [Usable Labels], "FollowUp", [Follow Up Labels], "Coverage", [Review Coverage %]), Labels[Technology]="Finishing"),
+ CALCULATETABLE(ROW("Test", "Empty", "N", [Candidate Labels], "Reviewed", [Reviewed Labels], "Usable", [Usable Labels], "FollowUp", [Follow Up Labels], "Coverage", [Review Coverage %]), Labels[LabelID]="NONE"),
+ CALCULATETABLE(ROW("Test", "A and H", "N", [Candidate Labels], "Reviewed", [Reviewed Labels], "Usable", [Usable Labels], "FollowUp", [Follow Up Labels], "Coverage", [Review Coverage %]), Labels[LabelID] IN {"FA","FH"}))

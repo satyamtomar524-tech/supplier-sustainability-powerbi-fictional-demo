@@ -1,0 +1,10 @@
+evidence_id,LabelID,Metric,Year,Value,Unit,Scope,Source,Provenance
+E01,FA,Energy use,2024,1200.0,MWh,Site,SIM-A-2024,Authored fictional scenario; no external source
+E02,FA,Energy use,2023,1500.0,MWh,Site,SIM-A-2023,Authored fictional scenario; no external source
+E03,FB,Energy intensity,2024,2.4,kWh/unit,Group,SIM-B-2024,Authored fictional scenario; no external source
+E04,FC,Energy use,2024,900.0,MWh,Site,SIM-C-2024,Authored fictional scenario; no external source
+E05,FD,Waste recycled,2021,62.0,%,Site,SIM-D-2021,Authored fictional scenario; no external source
+E06,FE,Water withdrawal,2024,1800.0,,Site,SIM-E-2024,Authored fictional scenario; no external source
+E07,FG,Waste recycled,2024,78.0,%,Site,SIM-G-2024,Authored fictional scenario; no external source
+E08,FH,Energy intensity,2024,1.8,kWh/unit,Site,SIM-H-2024,Authored fictional scenario; no external source
+E01,FA,Energy use,2024,1200.0,MWh,Site,SIM-A-2024,Authored fictional scenario; no external source

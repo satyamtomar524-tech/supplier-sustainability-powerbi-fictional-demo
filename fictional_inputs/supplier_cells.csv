@@ -1,0 +1,12 @@
+source_row,supplier_raw,technology
+2, Fictional Workshop A ,Machining
+3,Fictional Workshop B,Machining
+4,Fictional Workshop C,Automation
+5,Fictional Workshop D,Automation
+6,Fictional Workshop E,Finishing
+7,Fictional Workshop F,Finishing
+8,Fictional Workshop G,Forming
+9,Fictional Workshop H,Forming
+10,Fictional Workshop A,Machining
+11,Fictional Workshop G,Forming
+12,0,Unknown

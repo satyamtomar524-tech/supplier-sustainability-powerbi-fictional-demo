@@ -1,0 +1,9 @@
+LabelID,Supplier label,Technology,Review,Identity,Usable,Priority,Reason,Next action,As of
+FA,Workshop A,Machining,Reviewed,Resolved,1,P3,Usable example,Retain evidence and schedule a later review,2025-12-01
+FB,Workshop B,Machining,Reviewed,Resolved,0,P1,Scope mismatch,Request the site-level scope and denominator,2025-12-01
+FC,Workshop C,Automation,Reviewed,Unresolved,0,P1,Identity unresolved,Confirm the legal entity before attribution,2025-12-01
+FD,Workshop D,Automation,Reviewed,Resolved,0,P2,Historical period,Request a current-period disclosure,2025-12-01
+FE,Workshop E,Finishing,Reviewed,Resolved,0,P2,Missing unit,Confirm the metric unit before interpretation,2025-12-01
+FF,Workshop F,Finishing,Not reviewed,Resolved,0,P2,No evidence,Request a source and reporting period,2025-12-01
+FG,Workshop G,Forming,Reviewed,Resolved,1,P3,Usable example,Retain evidence and schedule a later review,2025-12-01
+FH,Workshop H,Forming,Not reviewed,Resolved,0,P2,Unreviewed,Review the example source and scope,2025-12-01

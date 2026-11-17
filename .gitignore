@@ -1,8 +1,8 @@
-# Keep locally generated model caches and private data files out of Git.
+# Keep original internal files and generated Power BI caches out.
 **/.pbi/
 **/.platform
+**/__pycache__/
 *.pbix
 *.xlsx
 *.xls
-*.csv
 *.zip

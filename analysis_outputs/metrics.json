@@ -1,0 +1,15 @@
+{
+  "candidate_labels": 8,
+  "reviewed_labels": 6,
+  "usable_labels": 2,
+  "follow_up_labels": 6,
+  "raw_supplier_cells": 11,
+  "occurrences": 10,
+  "excluded_placeholders": 1,
+  "raw_evidence_rows": 9,
+  "evidence_claims": 8,
+  "exact_evidence_duplicates": 1,
+  "review_coverage": 0.75,
+  "usable_coverage": 0.25,
+  "A_energy_change_pct": -0.2
+}

@@ -1,0 +1,11 @@
+LabelID,Source row,Supplier label,Technology
+FA,2,Fictional Workshop A,Machining
+FB,3,Fictional Workshop B,Machining
+FC,4,Fictional Workshop C,Automation
+FD,5,Fictional Workshop D,Automation
+FE,6,Fictional Workshop E,Finishing
+FF,7,Fictional Workshop F,Finishing
+FG,8,Fictional Workshop G,Forming
+FH,9,Fictional Workshop H,Forming
+FA,10,Fictional Workshop A,Machining
+FG,11,Fictional Workshop G,Forming

@@ -1,31 +1,30 @@
 table 'Data Quality'
-	lineageTag: 86e15e10-901a-4637-adb8-18d942ed7d33
 
-	column check
+	column 'Check'
 		dataType: string
-		lineageTag: c4b5e65e-ab5a-416e-9b03-e92a6a7f61c8
 		summarizeBy: none
-		sourceColumn: check
+		sourceColumn: Check
 
-	column value
+	column 'Value'
 		dataType: int64
-		lineageTag: c6642a2c-1813-474f-8ddd-1b0483cd8a02
+		formatString: 0
 		summarizeBy: none
-		sourceColumn: value
+		sourceColumn: Value
 
 	partition 'Data Quality' = m
 		mode: import
 		source =
-				let
-				    Source = #table({"check", "value"}, {
-				        {"Fictional source rows", "4"},
-				        {"Fictional candidate labels", "3"}
-				    }),
-				    Typed = Table.TransformColumnTypes(Source, {{"value", Int64.Type}}, "en-GB")
-				in
-				    Typed
+			let
+				Rows = #table({"Check", "Value"}, {
+				{"Raw supplier cells", 11},
+				{"Excluded placeholders", 1},
+				{"Retained occurrences", 10},
+				{"Candidate labels", 8},
+				{"Raw evidence rows", 9},
+				{"Exact duplicate removed", 1},
+				{"Retained claims", 8}
+				}),
+				Typed = Table.TransformColumnTypes(Rows, {{"Check", type text}, {"Value", type number}})
+			in Typed
 
 	annotation PBI_ResultType = Table
-
-	annotation PBI_NavigationStepName = Navigation
-

@@ -1,31 +1,74 @@
-# Supplier sustainability — fictional Power BI portfolio
+# ISM Supplier Sustainability Project
 
-A compact demonstration accompanying an ISM academic team project. All example records, names and numbers are invented. They do not establish real supplier relationships, certifications or environmental performance. The AI-assisted 2026 reconstruction is separate from the original 2025 team project.
+**College case study connected to a fictional Power BI evidence-review analysis.**
 
-## Open locally
+The decision: which supplier-evidence records should a reviewer follow up first, and why?
 
-Open `SYNTHETIC Supplier Evidence Demo.pbip` in Power BI Desktop and choose **Refresh**. First-open notices about empty tables or relationships disappear after refresh. The four tables use embedded Power Query literals, so no workbook, external data file or personal path is required.
+This edition uses eight invented workshops. It turns incomplete disclosures into an explicit review worklist, while keeping reporting period, unit, entity scope and uncertainty visible. It contains no original internal supplier data.
 
-1. **Evidence Overview:** six filter-aware indicators and a comparison table. Default coverage is 2 reviewed labels out of 3, or 66.7%.
-2. **Supplier Explorer:** choose exactly one fictional supplier. Alpha has one example claim; Beta is unresolved; Gamma is not reviewed. Use Overview to compare all labels.
-3. **Data Quality:** 3 labels and 4 source occurrences, including two Alpha occurrences.
+![Actual Power BI overview export](previews/overview.png)
 
-The layout uses consistent headings, navy table headers, lightly shaded KPI cards, readable text and meaningful accessibility descriptions. See [keyboard instructions and test scope](KEYBOARD_GUIDE.md).
+[View all three report pages](Power_BI_Report_Preview.pdf)
 
-## Interpret correctly
+## What the scenario finds
 
-Review coverage is a review-progress measure, not a sustainability score. Missing evidence and unreviewed records are not negative supplier assessments. The unit of analysis is a fictional label; occurrences are counted separately. Empty count populations can display `(Blank)`. Coverage is blank when there are no eligible labels. The single-supplier selector prevents ambiguous profile selection; the Overview table supports comparison with Ctrl+Space.
+| Result | Fictional outcome |
+|---|---:|
+| Candidate labels | 8 |
+| Reviewed | 6 / 8 = 75% |
+| Labels with usable example evidence | 2 / 8 = 25% |
+| Follow-up cases | 6 |
+| P1 identity or scope cases | 2 |
+| P2 incomplete, old or unreviewed cases | 4 |
 
-## Files and privacy
+Workshop B needs site-level scope; C needs an identity decision. D needs an updated period, E a confirmed unit, F a source and H a completed review. A and G have usable example evidence under the scenario rules. These are priorities for evidence work, not environmental-performance ratings.
 
-The included seven-slide PowerPoint and matching searchable PDF explain the fictional demonstration and project context. They remain editable/viewable independently of Power BI. This package excludes the original workbook, internal supplier rows, original PBIX, compressed model caches and private research exports.
+## Connect the original work to this edition
 
-This edition is maintained in a separate repository with a clean history. Original private academic files and recovery working folders are excluded. This public edition contains only the fictional demonstration.
+The starting point was Satyam Tomar's ISM academic team project in 2025. The supplied recovery guide records his reported contribution as helping with R/Excel preparation, assessment criteria, team Power BI work and presenting findings. Individual ownership of every original visual or measure is not established.
 
-## Verification
+An October 2026 reconstruction and November 2026 report-definition audit prompted a new reporting approach: preserve raw records, define the unit being counted, and distinguish a reviewed record from usable evidence. This edition demonstrates that approach with invented data. Codex substantially assisted the reconstruction, implementation and testing. The original academic project, this scenario and personal independent proficiency have different evidence.
 
-Desktop refresh, ordinary and keyboard selections, Ctrl/Shift selection guards, navigation, table boundaries, multi-label filtering and reset were exercised locally. Alpha plus Gamma returned 1 reviewed / 2 eligible = 50%; resetting the overview restored 66.7%. Table cells and accessible descriptions were inspected. The package was scanned and its ZIP checked against file hashes. See KEYBOARD_GUIDE.md for precise scope and platform limitations; this is not an accessibility certification.
+See [the case study](CASE_STUDY.md), [the presentation](ISM_Supplier_Sustainability_Case_Study.pdf), and [the validation scope](VALIDATION.md).
 
-## Download
+## Explore in Power BI Desktop
 
-[Download the complete fictional package](https://github.com/satyamtomar524-tech/supplier-sustainability-powerbi-fictional-demo/raw/refs/heads/main/Supplier_Sustainability_FICTIONAL_Public_Package.zip), unzip it, then open the PBIP file.
+Unzip the whole package or clone the repository. Open `ISM Supplier Sustainability.pbip`, then choose **Refresh**. First-open notices about empty data or relationships are expected until the literal-source refresh finishes. No external workbook or personal source path is required.
+
+1. **Review Overview:** choose a technology and inspect eligible labels, review coverage, usable labels and follow-up counts. The table sorts P1 before P2 before P3. Equal-priority rows are tied; their order is not an additional ranking.
+2. **Supplier Evidence:** choose exactly one workshop. Read the review reason and next action, then inspect source ID, scope, metric, year and reported value. An empty evidence table means no scenario claim exists.
+3. **Data Quality:** reconcile 11 raw supplier cells to 10 occurrences and 8 labels, and 9 evidence rows to 8 distinct claims.
+
+The report's embedded tables are a portable snapshot generated from the included public fictional inputs. Clicking Desktop Refresh refreshes that snapshot; changes to the CSVs require rerunning the reproducible workflow below first.
+
+## Reproduce the complete analysis
+
+Requirements: base R (tested with R 4.6.1), Python 3 standard library, and Power BI Desktop for the report. No R/Python packages need to be installed for these commands. From this package folder:
+
+```text
+Rscript --vanilla reproduce/analyse.R . r_outputs
+python reproduce/refresh_snapshot.py r_outputs
+python reproduce/test_analysis.py
+```
+
+Then reopen the PBIP and choose Refresh. The R script reads only `fictional_inputs/`, trims label whitespace, excludes the documented placeholder, preserves source rows, removes exact duplicate evidence rows, applies the evidence rules and writes `r_outputs/`. The Python adapter copies those results into the portable model. `analysis_outputs/r_model_snapshot.json` records model-table hashes and metrics. `analysis_outputs/input_hashes.json` records the supplied fixture's initial input hashes.
+
+The acceptance tests are intentionally bound to the supplied fixture. If you change its inputs to run another scenario, revise the expected outcomes deliberately; a changed scenario should not silently pass the original fixture tests. `analysis_outputs/` includes the original comparison calculation snapshots; `r_outputs/` and `r_model_snapshot.json` are refreshed by the commands above.
+
+## Worked analytical example
+
+Workshop A reports invented site energy use of 1,500 MWh in 2023 and 1,200 MWh in 2024. The within-site change is `(1200 - 1500) / 1500 = -20%`. Both rows use the same metric, unit and site scope. B reports group-level intensity in kWh/unit, so it cannot be averaged with A's absolute energy use or used to rank A against B.
+
+Selecting Machining gives 2 labels, 100% reviewed and 1 usable case. Finishing gives 2 labels, 50% reviewed and 0 usable cases. Selecting A plus H gives 50% review coverage. A's two source occurrences still count as one candidate label.
+
+## Rules and model
+
+See [metric and priority definitions](METHOD.md). Labels is one row per candidate label. Evidence is one row per deduplicated scenario claim. Occurrences retains source-row grain. Labels filters both facts through single-direction relationships. Technology is stored on Labels so that every measure uses the same filtered population. Percentages return blank for an empty eligible population. Some empty count populations display blank rather than zero; the zero-safe reviewed/usable/follow-up measures are explicit.
+
+All source IDs beginning SIM identify authored fixture records. They are not real publications or fabricated citations. The research-as-of date is **1 December 2025** for this fictional exercise; the rebuild/testing date is **17 November 2026**. These dates serve different purposes.
+
+## Package and privacy
+
+The package contains the PBIP, inspectable model/report definitions, invented input CSVs, derived outputs, reproduction scripts, ten-slide editable PowerPoint, matching searchable PDF and validation notes. The PDF uses slide renders with a searchable text layer. The public data are entirely authored; they are not anonymised extracts from the internal workbook.
+
+Original Excel/PBIX files, private research records, cached binary data models and old archives are excluded. The old GitHub repository must remain private. This analysis establishes no BMW endorsement, measured business savings, supplier ranking or certificate verification.
