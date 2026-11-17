@@ -5,9 +5,9 @@
     "x": 335,
     "y": 245,
     "z": 2785,
-    "height": 440,
+    "height": 430,
     "width": 905,
-    "tabOrder": 100
+    "tabOrder": 200
   },
   "visual": {
     "visualType": "tableEx",
@@ -75,11 +75,9 @@
             },
             "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": false
+        ]
       }
     },
-    "drillFilterOtherVisuals": true,
     "objects": {
       "values": [
         {
@@ -151,6 +149,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

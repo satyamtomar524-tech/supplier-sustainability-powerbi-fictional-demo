@@ -7,7 +7,7 @@
     "z": 2490,
     "height": 260,
     "width": 270,
-    "tabOrder": 200
+    "tabOrder": 300
   },
   "visual": {
     "visualType": "slicer",
@@ -80,9 +80,13 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "general": [
         {
@@ -97,6 +101,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

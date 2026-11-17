@@ -26,4 +26,6 @@ A's invented 20% within-site energy change is comparable across its own two peri
 
 Satyam provided project context and requirements and directed the recovery. Codex substantially assisted the later code, model/report changes, testing and presentation. Original individual measure ownership and independently demonstrated advanced proficiency are not inferred. Personal rehearsal, original academic reconciliation and source authentication remain separate from the tested fictional artifact.
 
-The local evidence includes R reproduction, seven Python contract tests, Desktop refresh and DAX execution, report interaction checks, presentation/PDF comparison and a privacy scan. See VALIDATION.md for exact outcomes and unrun checks. No claim of an exhaustive accessibility certification or measured business impact is made.
+The local evidence includes R reproduction, thirteen Python contract and pipeline tests, Desktop refresh and DAX execution, report interaction checks, presentation/PDF comparison and a privacy scan. See VALIDATION.md for exact outcomes and unrun checks. No claim of an exhaustive accessibility certification or measured business impact is made.
+
+Version 3 also repairs regeneration after native Desktop Save, adds a real UTC refresh clock and identity display, and demonstrates mismatched filter populations in an executed fictional DAX example. The version-specific walkthrough and slide notes support rehearsal; they do not replace contribution confirmation or the student's own answers.

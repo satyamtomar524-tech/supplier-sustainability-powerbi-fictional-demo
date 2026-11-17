@@ -7,7 +7,7 @@
     "z": 1495,
     "height": 120,
     "width": 845,
-    "tabOrder": 400
+    "tabOrder": 500
   },
   "visual": {
     "visualType": "tableEx",
@@ -28,6 +28,20 @@
               },
               "queryRef": "Labels.Review",
               "nativeQueryRef": "Review"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labels"
+                    }
+                  },
+                  "Property": "Identity"
+                }
+              },
+              "queryRef": "Labels.Identity",
+              "nativeQueryRef": "Identity"
             },
             {
               "field": {

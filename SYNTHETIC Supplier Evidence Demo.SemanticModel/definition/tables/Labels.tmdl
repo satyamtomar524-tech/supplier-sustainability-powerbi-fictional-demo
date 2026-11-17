@@ -1,85 +1,106 @@
 table Labels
+	lineageTag: a48f0d12-3557-4407-ade4-be5c997125cc
 
 	measure 'Candidate Labels' = COUNTROWS(Labels)
 		formatString: 0
+		lineageTag: 0ada62a7-2a06-40ac-b06d-1c31aceab3c3
 
 	measure 'Reviewed Labels' = COALESCE(CALCULATE(COUNTROWS(Labels), KEEPFILTERS(Labels[Review] = "Reviewed")), 0)
 		formatString: 0
+		lineageTag: 5dbc6b24-8752-48e4-b4bb-de3c4d4b4658
 
 	measure 'Usable Labels' = COALESCE(CALCULATE(COUNTROWS(Labels), KEEPFILTERS(Labels[Usable] = 1)), 0)
 		formatString: 0
+		lineageTag: f9c2cd53-9884-41c4-87f6-ef4f6cf5bbef
 
 	measure 'Follow Up Labels' = COALESCE(CALCULATE(COUNTROWS(Labels), KEEPFILTERS(Labels[Priority] <> "P3")), 0)
 		formatString: 0
+		lineageTag: c64a6a41-ce62-4051-83e1-920563a7ba17
 
 	measure 'Review Coverage %' = DIVIDE([Reviewed Labels], [Candidate Labels])
 		formatString: 0.0%
+		lineageTag: af082657-326d-4435-b78b-323fb2a76789
 
 	measure 'Usable Coverage %' = DIVIDE([Usable Labels], [Candidate Labels])
 		formatString: 0.0%
+		lineageTag: 19dc0792-1bcd-4de2-99e5-11e66617471b
 
 	measure 'Occurrence Rows' = COUNTROWS(Occurrences)
 		formatString: 0
+		lineageTag: 6154bfac-11e0-4c9b-b191-7de64212e089
 
 	measure 'Claim Rows' = COUNTROWS(Evidence)
 		formatString: 0
+		lineageTag: 0ffe46c8-0b39-4846-a45a-98abbf42ece0
 
-	column 'LabelID'
+	column LabelID
 		dataType: string
+		lineageTag: 5c7d4901-0fa5-4a12-a0ba-627a7afdce7b
 		summarizeBy: none
 		sourceColumn: LabelID
 
 	column 'Supplier label'
 		dataType: string
+		lineageTag: 7f13d9cb-5377-4649-af0b-7e3f2f0bc1c5
 		summarizeBy: none
 		sourceColumn: Supplier label
 
-	column 'Technology'
+	column Technology
 		dataType: string
+		lineageTag: e49ecd57-852b-4e0f-bd47-1be429501654
 		summarizeBy: none
 		sourceColumn: Technology
 
-	column 'Review'
+	column Review
 		dataType: string
+		lineageTag: 916636d9-aa85-4eb9-89c6-654c0d892820
 		summarizeBy: none
 		sourceColumn: Review
 
-	column 'Identity'
+	column Identity
 		dataType: string
+		lineageTag: 97bab57b-dce0-401b-bf52-ffd7a9da3cfe
 		summarizeBy: none
 		sourceColumn: Identity
 
-	column 'Usable'
-		dataType: int64
+	column Usable
+		dataType: double
 		formatString: 0
-		summarizeBy: none
+		lineageTag: 5e9930c9-a4fc-47ee-be37-f5ae952a397f
+		summarizeBy: sum
 		sourceColumn: Usable
 
-	column 'Priority'
+		annotation SummarizationSetBy = Automatic
+
+	column Priority
 		dataType: string
+		lineageTag: 88fa6970-f2a6-4cd4-88d2-f7d519b923f1
 		summarizeBy: none
 		sourceColumn: Priority
 
-	column 'Reason'
+	column Reason
 		dataType: string
+		lineageTag: 4e4a8e12-b5a4-4939-a383-75f2718a9483
 		summarizeBy: none
 		sourceColumn: Reason
 
 	column 'Next action'
 		dataType: string
+		lineageTag: 3459f461-2c5a-483b-9276-6db967af8d91
 		summarizeBy: none
 		sourceColumn: Next action
 
 	column 'As of'
 		dataType: string
+		lineageTag: 4c2a7446-abef-442f-a0a1-3fa6b403fcf1
 		summarizeBy: none
 		sourceColumn: As of
 
-	partition 'Labels' = m
+	partition Labels = m
 		mode: import
 		source =
-			let
-				Rows = #table({"LabelID", "Supplier label", "Technology", "Review", "Identity", "Usable", "Priority", "Reason", "Next action", "As of"}, {
+				let
+					Rows = #table({"LabelID", "Supplier label", "Technology", "Review", "Identity", "Usable", "Priority", "Reason", "Next action", "As of"}, {
 				{"FA", "Workshop A", "Machining", "Reviewed", "Resolved", 1, "P3", "Usable example", "Retain evidence and schedule a later review", "2025-12-01"},
 				{"FB", "Workshop B", "Machining", "Reviewed", "Resolved", 0, "P1", "Scope mismatch", "Request the site-level scope and denominator", "2025-12-01"},
 				{"FC", "Workshop C", "Automation", "Reviewed", "Unresolved", 0, "P1", "Identity unresolved", "Confirm the legal entity before attribution", "2025-12-01"},
@@ -88,8 +109,9 @@ table Labels
 				{"FF", "Workshop F", "Finishing", "Not reviewed", "Resolved", 0, "P2", "No evidence", "Request a source and reporting period", "2025-12-01"},
 				{"FG", "Workshop G", "Forming", "Reviewed", "Resolved", 1, "P3", "Usable example", "Retain evidence and schedule a later review", "2025-12-01"},
 				{"FH", "Workshop H", "Forming", "Not reviewed", "Resolved", 0, "P2", "Unreviewed", "Review the example source and scope", "2025-12-01"}
-				}),
-				Typed = Table.TransformColumnTypes(Rows, {{"LabelID", type text}, {"Supplier label", type text}, {"Technology", type text}, {"Review", type text}, {"Identity", type text}, {"Usable", type number}, {"Priority", type text}, {"Reason", type text}, {"Next action", type text}, {"As of", type text}})
-			in Typed
+					}),
+					Typed = Table.TransformColumnTypes(Rows, {{"LabelID", type text}, {"Supplier label", type text}, {"Technology", type text}, {"Review", type text}, {"Identity", type text}, {"Usable", type number}, {"Priority", type text}, {"Reason", type text}, {"Next action", type text}, {"As of", type text}})
+				in Typed
 
 	annotation PBI_ResultType = Table
+

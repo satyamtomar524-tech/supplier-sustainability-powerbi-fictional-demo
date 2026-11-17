@@ -1,21 +1,26 @@
 table 'Data Quality'
+	lineageTag: 908d3ecc-ba63-49fb-834f-7815fd9656ba
 
-	column 'Check'
+	column Check
 		dataType: string
+		lineageTag: e7bb5cde-01d4-4493-9832-fb3c97b1da36
 		summarizeBy: none
 		sourceColumn: Check
 
-	column 'Value'
-		dataType: int64
+	column Value
+		dataType: double
 		formatString: 0
-		summarizeBy: none
+		lineageTag: 86908f98-5438-4c60-8d2d-f871743f4ab2
+		summarizeBy: sum
 		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
 
 	partition 'Data Quality' = m
 		mode: import
 		source =
-			let
-				Rows = #table({"Check", "Value"}, {
+				let
+					Rows = #table({"Check", "Value"}, {
 				{"Raw supplier cells", 11},
 				{"Excluded placeholders", 1},
 				{"Retained occurrences", 10},
@@ -23,8 +28,9 @@ table 'Data Quality'
 				{"Raw evidence rows", 9},
 				{"Exact duplicate removed", 1},
 				{"Retained claims", 8}
-				}),
-				Typed = Table.TransformColumnTypes(Rows, {{"Check", type text}, {"Value", type number}})
-			in Typed
+					}),
+					Typed = Table.TransformColumnTypes(Rows, {{"Check", type text}, {"Value", type number}})
+				in Typed
 
 	annotation PBI_ResultType = Table
+

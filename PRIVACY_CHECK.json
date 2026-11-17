@@ -1,13 +1,20 @@
 {
+  "build_id": "ISM-FICTIONAL-v3",
   "result": "passed",
   "private_label_count_min_6_chars": 281,
-  "checked_files": 69,
+  "content_files_checked": 76,
   "text_matches": 0,
-  "excluded": [
-    "original Excel/PBIX",
-    "private research",
-    "Desktop caches",
-    "old archives"
+  "model_report_tree_sha256": "64ba18fd18876f8d3cece8822c09e069b70f9850b348ae296b802472d35a794d",
+  "old_repository_private_freshly_verified": true,
+  "data_origin": "Entirely authored fictional fixtures, not anonymised internal rows",
+  "scope": "Text, Office XML/notes, PDF text/metadata, file types and visual review of report/slide images",
+  "exclusions": [
+    "Original Excel and PBIX",
+    "Internal research",
+    "Private screenshots",
+    "Power BI caches",
+    ".platform metadata",
+    "Older release archives"
   ],
-  "scope": "Authored fictional inputs; bounded text/XML/PDF scan and visual review."
+  "limitations": "Bounded scan; does not prove removal of previously downloaded original material."
 }

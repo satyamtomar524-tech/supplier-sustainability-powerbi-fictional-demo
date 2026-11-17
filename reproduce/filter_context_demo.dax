@@ -1,0 +1,14 @@
+// Fictional illustration of mismatched filter populations, not an original legacy result.
+// Machining: global reviewed 6 / selected labels 2 = 300%; correct reviewed 2 / 2 = 100%.
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "Technology", "Machining",
+        "Eligible", [Candidate Labels],
+        "GlobalReviewed", CALCULATE([Reviewed Labels], REMOVEFILTERS(Labels)),
+        "WrongCoverage", DIVIDE(CALCULATE([Reviewed Labels], REMOVEFILTERS(Labels)), [Candidate Labels]),
+        "SelectedReviewed", [Reviewed Labels],
+        "CorrectCoverage", [Review Coverage %]
+    ),
+    Labels[Technology] = "Machining"
+)

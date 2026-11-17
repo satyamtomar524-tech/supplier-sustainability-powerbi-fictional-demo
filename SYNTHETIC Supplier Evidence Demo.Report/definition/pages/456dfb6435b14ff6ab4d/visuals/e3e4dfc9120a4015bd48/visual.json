@@ -5,9 +5,9 @@
     "x": 40,
     "y": 580,
     "z": 5840,
-    "height": 115,
+    "height": 94,
     "width": 1200,
-    "tabOrder": 100
+    "tabOrder": 200
   },
   "visual": {
     "visualType": "textbox",
@@ -19,9 +19,9 @@
               {
                 "textRuns": [
                   {
-                    "value": "Usable evidence: reviewed, resolved identity, site scope, explicit unit and year 2023 or later.",
+                    "value": "Usable evidence: reviewed, resolved identity, site scope, explicit unit and reporting years 2023-2025.",
                     "textStyle": {
-                      "fontSize": "18pt",
+                      "fontSize": "17pt",
                       "fontFamily": "Segoe UI",
                       "fontWeight": "normal",
                       "color": "#123344"
@@ -34,7 +34,7 @@
                   {
                     "value": "P1: identity/scope. P2: missing, old or unreviewed evidence. P3: usable example.",
                     "textStyle": {
-                      "fontSize": "18pt",
+                      "fontSize": "17pt",
                       "fontFamily": "Segoe UI",
                       "fontWeight": "normal",
                       "color": "#35566A"

@@ -1,31 +1,38 @@
 table Occurrences
+	lineageTag: c2f14de2-e882-4d2e-b481-e79cbde5d7dd
 
-	column 'LabelID'
+	column LabelID
 		dataType: string
+		lineageTag: 40da0d2b-47ca-4393-b9a7-7570eedf300e
 		summarizeBy: none
 		sourceColumn: LabelID
 
 	column 'Source row'
-		dataType: int64
+		dataType: double
 		formatString: 0
-		summarizeBy: none
+		lineageTag: a96c1212-1159-4e43-bdd4-8182ac327005
+		summarizeBy: sum
 		sourceColumn: Source row
+
+		annotation SummarizationSetBy = Automatic
 
 	column 'Supplier label'
 		dataType: string
+		lineageTag: b0253b0e-c60d-483d-97ed-0f349ae116e4
 		summarizeBy: none
 		sourceColumn: Supplier label
 
-	column 'Technology'
+	column Technology
 		dataType: string
+		lineageTag: 48971db8-a534-4dc7-8a77-e1f14c21aca8
 		summarizeBy: none
 		sourceColumn: Technology
 
-	partition 'Occurrences' = m
+	partition Occurrences = m
 		mode: import
 		source =
-			let
-				Rows = #table({"LabelID", "Source row", "Supplier label", "Technology"}, {
+				let
+					Rows = #table({"LabelID", "Source row", "Supplier label", "Technology"}, {
 				{"FA", 2, "Fictional Workshop A", "Machining"},
 				{"FB", 3, "Fictional Workshop B", "Machining"},
 				{"FC", 4, "Fictional Workshop C", "Automation"},
@@ -36,8 +43,9 @@ table Occurrences
 				{"FH", 9, "Fictional Workshop H", "Forming"},
 				{"FA", 10, "Fictional Workshop A", "Machining"},
 				{"FG", 11, "Fictional Workshop G", "Forming"}
-				}),
-				Typed = Table.TransformColumnTypes(Rows, {{"LabelID", type text}, {"Source row", type number}, {"Supplier label", type text}, {"Technology", type text}})
-			in Typed
+					}),
+					Typed = Table.TransformColumnTypes(Rows, {{"LabelID", type text}, {"Source row", type number}, {"Supplier label", type text}, {"Technology", type text}})
+				in Typed
 
 	annotation PBI_ResultType = Table
+

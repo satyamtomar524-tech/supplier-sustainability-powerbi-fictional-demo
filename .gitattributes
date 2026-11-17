@@ -1,0 +1,6 @@
+# Preserve native model and input bytes so the release manifest stays exact.
+* -text
+*.pdf binary
+*.pptx binary
+*.png binary
+*.zip binary

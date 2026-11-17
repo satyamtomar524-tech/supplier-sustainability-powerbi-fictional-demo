@@ -7,7 +7,7 @@
     "z": 90,
     "height": 90,
     "width": 1200,
-    "tabOrder": 700
+    "tabOrder": 800
   },
   "visual": {
     "visualType": "textbox",
@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "FICTIONAL SCENARIO | As of 1 Dec 2025 | Choose a technology or compare table rows",
+                    "value": "FICTIONAL | Reporting years 2023-2025 | Snapshot 1 Dec 2025",
                     "textStyle": {
                       "fontSize": "16pt",
                       "fontFamily": "Segoe UI",

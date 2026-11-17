@@ -1,6 +1,6 @@
 # Fictional metric and decision contract
 
-Scenario version 2, rebuilt 17 November 2026. Research-as-of 1 December 2025. Authored inputs only.
+Scenario version 3, rebuilt 17 November 2026. Research-as-of 1 December 2025. Authored inputs only.
 
 ## Grain and cleaning
 
@@ -29,3 +29,7 @@ Technology sits on Labels, with Labels -> Evidence and Labels -> Occurrences sin
 ## Comparability
 
 Compare observations only when label, metric, unit and scope align. A's 2023 and 2024 Energy use observations are both Site/MWh: change=-20%. B is Group/kWh per unit and cannot join that calculation. The fictional figures do not establish causal energy savings.
+
+## Technical refresh and reproducibility
+
+RefreshInfo is a disconnected, one-row technical table populated by DateTimeZone.FixedUtcNow at actual Desktop refresh. It supplies the footer clock and build ID, and never changes analytical denominators. The public regeneration adapter preserves native-saved model declarations and measure definitions, validates the complete batch, then stages per-file atomic replacements with rollback for ordinary replacement errors. Full claim fields and occurrence keys are tested against R outputs. The native save/regenerate/reopen/refresh cycle is recorded in VALIDATION.md.

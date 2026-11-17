@@ -7,7 +7,7 @@
     "z": 90,
     "height": 90,
     "width": 1200,
-    "tabOrder": 400
+    "tabOrder": 500
   },
   "visual": {
     "visualType": "textbox",
@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "FICTIONAL SCENARIO | Exact duplicates removed | Name cleaning does not verify legal identity",
+                    "value": "FICTIONAL | Full-fixture checks | Cleaning a label does not verify identity",
                     "textStyle": {
                       "fontSize": "16pt",
                       "fontFamily": "Segoe UI",

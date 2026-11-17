@@ -70,10 +70,29 @@ class ScenarioContract(unittest.TestCase):
                 self.assertEqual(model[r['LabelID']][column], r[column])
         self.assertEqual(len(model_rows('Occurrences')), len(records('occurrences.csv')))
         self.assertEqual(len(model_rows('Evidence')), len(records('evidence.csv')))
+        expected = {r['evidence_id']: r for r in records('evidence.csv')}
+        actual = {r['evidence_id']: r for r in model_rows('Evidence')}
+        self.assertEqual(set(actual), set(expected))
+        for key, source in expected.items():
+            for column, value in source.items():
+                if column == 'Year':
+                    value = int(value)
+                elif column == 'Value':
+                    value = float(value)
+                self.assertEqual(actual[key][column], value, (key, column))
+            unit = source['Unit'] or '[unit missing]'
+            self.assertEqual(actual[key]['Reported value'], f"{float(source['Value']):g} {unit}")
+        label_ids = {r['clean_label']: r['LabelID'] for r in records('labels.csv')}
+        expected_occ = {int(r['source_row']): (label_ids[r['clean_label']], r['clean_label'], r['technology'])
+                        for r in records('occurrences.csv')}
+        actual_occ = {r['Source row']: (r['LabelID'], r['Supplier label'], r['Technology'])
+                      for r in model_rows('Occurrences')}
+        self.assertEqual(actual_occ, expected_occ)
 
     def test_visual_fields_and_keyboard_order(self):
         model = {name: set(model_rows(name)[0]) for name in ['Labels', 'Evidence', 'Occurrences', 'Data Quality']}
-        measures = {'Candidate Labels', 'Review Coverage %', 'Usable Labels', 'Follow Up Labels'}
+        measures = {'Candidate Labels', 'Review Coverage %', 'Usable Labels', 'Follow Up Labels',
+                    'Refresh status'}
         root = ROOT / 'SYNTHETIC Supplier Evidence Demo.Report/definition/pages'
         for page in root.iterdir():
             if not page.is_dir():

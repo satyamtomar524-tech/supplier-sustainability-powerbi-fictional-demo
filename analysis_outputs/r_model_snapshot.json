@@ -17,9 +17,11 @@
     "A_energy_change_pct": -0.2
   },
   "table_sha256": {
-    "Data Quality.tmdl": "ba86e02051acf17731e5fb067e17a196076a7b61cc5b4e0ac20f4991ff38e2e3",
-    "Evidence.tmdl": "51c05d3ce2d509ff62fd8e63b33b9a82ada9653e2fb83286ee5671172650b365",
-    "Labels.tmdl": "eb15291f6622a05fe19385286332bbf1d088d654ad070a56a8bf50f14e633441",
-    "Occurrences.tmdl": "1e9891f256331021a4d2ff5961ad299bf75e0c2398d828c55c5b63acd4ff92d3"
-  }
+    "Data Quality.tmdl": "58ad0c43b316761424353a08707ea9b7c6eceae8977df836225be4c239c6041d",
+    "Evidence.tmdl": "f5e5dd764849c8ff170faeac4ce7b4cf9f61c4e987fca1d8902951ffc1a68522",
+    "Labels.tmdl": "95639c0291d0e94a94c0bb7f5230e5921d155a40d15858a9e299254acf4ea69f",
+    "Occurrences.tmdl": "2b70ad104f005828af9b99e62cafc62383af8b14dd2f9c114ac47bfc1426a9b2",
+    "RefreshInfo.tmdl": "689065e028811e0012ab90f798e1c00839f2bab115919ca1137c501309db45ad"
+  },
+  "hash_stage": "Final native-saved definitions, with all keyed analytical rows rechecked against R"
 }

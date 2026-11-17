@@ -1,0 +1,27 @@
+table RefreshInfo
+	lineageTag: c23f2c81-bc4d-48d9-9c42-f0d6418b95a5
+
+	measure 'Refresh status' = "Build " & SELECTEDVALUE(RefreshInfo[Build]) & " | Refreshed " & SELECTEDVALUE(RefreshInfo[Refreshed UTC])
+		formatString: @
+		lineageTag: 2d776333-bf08-4a6b-ba24-8f341468fc2a
+
+	column 'Refreshed UTC'
+		dataType: string
+		lineageTag: d2a8a7dd-6c67-4450-9916-ff3a799ec6b2
+		summarizeBy: none
+		sourceColumn: Refreshed UTC
+
+	column Build
+		dataType: string
+		lineageTag: eeae5038-799a-4f1e-98c9-f6ab1f11c0cc
+		summarizeBy: none
+		sourceColumn: Build
+
+	partition RefreshInfo = m
+		mode: import
+		source =
+				let
+					Stamp = DateTimeZone.ToText(DateTimeZone.FixedUtcNow(), "yyyy-MM-dd HH:mm:ss", "en-US") & " UTC",
+					Rows = #table(type table [#"Refreshed UTC" = text, Build = text], {{Stamp, "ISM-FICTIONAL-v3"}})
+				in Rows
+

@@ -6,14 +6,17 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Labels","Evidence","Occurrences","Data Quality"]
+annotation PBI_QueryOrder = ["Labels","Evidence","Occurrences","Data Quality","RefreshInfo"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
 
 ref table Labels
 ref table Evidence
 ref table Occurrences
 ref table 'Data Quality'
+ref table RefreshInfo
 
 ref cultureInfo en-GB
 

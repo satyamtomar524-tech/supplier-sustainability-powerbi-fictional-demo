@@ -5,9 +5,9 @@
     "x": 395,
     "y": 515,
     "z": 5295,
-    "height": 175,
+    "height": 160,
     "width": 845,
-    "tabOrder": 100
+    "tabOrder": 200
   },
   "visual": {
     "visualType": "tableEx",

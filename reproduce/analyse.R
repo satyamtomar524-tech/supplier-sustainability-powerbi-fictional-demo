@@ -15,6 +15,14 @@ occ <- cells[keep,]
 labels <- unique(occ[,c('clean_label','technology')])
 labels <- labels[order(labels$clean_label),]
 labels$LabelID <- paste0('F',sub('Fictional Workshop ','',labels$clean_label))
+if (anyDuplicated(reviews$LabelID)) stop('Each label must have exactly one review decision')
+if (!setequal(reviews$LabelID, labels$LabelID)) stop('Review IDs must match candidate IDs')
+if (any(!raw$LabelID %in% labels$LabelID)) stop('Evidence has an unknown LabelID')
+if (anyNA(raw$Year) || any(!nzchar(as.character(raw$Year))) ||
+    any(!is.finite(suppressWarnings(as.numeric(raw$Year))))) stop('Every claim needs a numeric reporting year')
+if (anyNA(raw$Value) || any(!is.finite(suppressWarnings(as.numeric(raw$Value))))) stop('Claim values must be finite')
+if (any(!reviews$Review %in% c('Reviewed','Not reviewed'))) stop('Unknown review status')
+if (any(!reviews$Identity %in% c('Resolved','Unresolved'))) stop('Unknown identity status')
 labels$Review <- reviews$Review[match(labels$LabelID,reviews$LabelID)]
 labels$Identity <- reviews$Identity[match(labels$LabelID,reviews$LabelID)]
 stopifnot(!anyNA(labels$Review),!anyDuplicated(labels$LabelID))
