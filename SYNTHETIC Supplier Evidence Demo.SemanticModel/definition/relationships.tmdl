@@ -1,0 +1,8 @@
+relationship 3cd1c700-959d-4e90-b00f-c98287601c2f
+	fromColumn: Evidence.LabelID
+	toColumn: Labels.LabelID
+
+relationship 36dfb543-9f20-4edb-a64c-f8c16ee3ff7b
+	fromColumn: Occurrences.LabelID
+	toColumn: Labels.LabelID
+

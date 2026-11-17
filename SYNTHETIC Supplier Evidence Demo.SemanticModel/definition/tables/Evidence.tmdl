@@ -1,0 +1,99 @@
+table Evidence
+	lineageTag: e26022da-4b50-40c5-83b8-55e44dda7c72
+
+	column LabelID
+		dataType: string
+		lineageTag: 3be85b7c-cac3-447b-b05f-603d0693bdaf
+		summarizeBy: none
+		sourceColumn: LabelID
+
+	column supplier_label
+		dataType: string
+		lineageTag: 8d71e151-c927-47be-991b-d692747be6ee
+		summarizeBy: none
+		sourceColumn: supplier_label
+
+	column evidence_id
+		dataType: string
+		lineageTag: 5c89e92a-19cc-4a4f-b496-5c2bab810369
+		summarizeBy: none
+		sourceColumn: evidence_id
+
+	column claim_kind
+		dataType: string
+		lineageTag: 9dc9928d-2ac9-4aa3-bcef-45d17f9ec5bc
+		summarizeBy: none
+		sourceColumn: claim_kind
+
+	column source_title
+		dataType: string
+		lineageTag: f3a8f13e-67fa-482a-8693-3e40ab52cbb7
+		summarizeBy: none
+		sourceColumn: source_title
+
+	column URL
+		dataType: string
+		lineageTag: e49d73b5-a223-4432-965a-25f1fce1c01e
+		summarizeBy: none
+		sourceColumn: URL
+
+	column source_publication_date
+		dataType: string
+		lineageTag: 052cfaad-807f-4e28-ae54-30bfaf58ec84
+		summarizeBy: none
+		sourceColumn: source_publication_date
+
+	column reporting_period
+		dataType: string
+		lineageTag: a902c714-d456-4b6a-b493-a15490df288a
+		summarizeBy: none
+		sourceColumn: reporting_period
+
+	column scope
+		dataType: string
+		lineageTag: 335901db-3811-43a2-b7e4-960626d57a26
+		summarizeBy: none
+		sourceColumn: scope
+
+	column metric_key
+		dataType: string
+		lineageTag: 3f6894df-730c-4dc7-9c56-2fb93bb4a65e
+		summarizeBy: none
+		sourceColumn: metric_key
+
+	column metric_value
+		dataType: string
+		lineageTag: 96b5b246-7668-4637-b1f9-3afdd59728d0
+		summarizeBy: none
+		sourceColumn: metric_value
+
+	column unit
+		dataType: string
+		lineageTag: f87f2680-7b4c-402a-80ef-85ef76152075
+		summarizeBy: none
+		sourceColumn: unit
+
+	column eligible_by_cutoff
+		dataType: string
+		lineageTag: bac0286d-8b7e-4cbb-8e04-d914fda3f955
+		summarizeBy: none
+		sourceColumn: eligible_by_cutoff
+
+	column evidence_limits
+		dataType: string
+		lineageTag: b5868e52-08e9-4e80-892b-477f213a4699
+		summarizeBy: none
+		sourceColumn: evidence_limits
+
+	partition Evidence = m
+		mode: import
+		source =
+				let
+				    Source = #table({"LabelID", "supplier_label", "evidence_id", "claim_kind", "source_title", "URL", "source_publication_date", "reporting_period", "scope", "metric_key", "metric_value", "unit", "eligible_by_cutoff", "evidence_limits"}, {
+				        {"F001", "Fictional Alpha", "DEMO-001", "Fictional claim", "Fictional source", "", "2025-01-01", "2024", "Fictional example only", "Example", "10", "units", "TRUE", "Not a real claim"}
+				    })
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

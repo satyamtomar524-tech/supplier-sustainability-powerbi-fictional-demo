@@ -1,0 +1,31 @@
+table 'Data Quality'
+	lineageTag: 86e15e10-901a-4637-adb8-18d942ed7d33
+
+	column check
+		dataType: string
+		lineageTag: c4b5e65e-ab5a-416e-9b03-e92a6a7f61c8
+		summarizeBy: none
+		sourceColumn: check
+
+	column value
+		dataType: int64
+		lineageTag: c6642a2c-1813-474f-8ddd-1b0483cd8a02
+		summarizeBy: none
+		sourceColumn: value
+
+	partition 'Data Quality' = m
+		mode: import
+		source =
+				let
+				    Source = #table({"check", "value"}, {
+				        {"Fictional source rows", "4"},
+				        {"Fictional candidate labels", "3"}
+				    }),
+				    Typed = Table.TransformColumnTypes(Source, {{"value", Int64.Type}}, "en-GB")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

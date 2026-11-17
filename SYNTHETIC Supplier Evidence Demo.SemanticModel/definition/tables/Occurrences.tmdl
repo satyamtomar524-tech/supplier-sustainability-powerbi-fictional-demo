@@ -1,0 +1,55 @@
+table Occurrences
+	lineageTag: dd5d4d77-da0c-413a-9e14-a7efba822e19
+
+	column LabelID
+		dataType: string
+		lineageTag: 3882c0b1-b265-4481-a1e1-c5f57690c283
+		summarizeBy: none
+		sourceColumn: LabelID
+
+	column Sheet
+		dataType: string
+		lineageTag: 4f36be11-62c9-4399-addf-31f616c9e3d4
+		summarizeBy: none
+		sourceColumn: Sheet
+
+	column excel_row
+		dataType: int64
+		lineageTag: f27542f1-eb9d-4168-992b-62f42c4283b0
+		summarizeBy: none
+		sourceColumn: excel_row
+
+	column supplier_raw
+		dataType: string
+		lineageTag: 2e4fc6cf-9870-46fd-80ac-47f698721783
+		summarizeBy: none
+		sourceColumn: supplier_raw
+
+	column record_type
+		dataType: string
+		lineageTag: d4bc73fa-377c-4775-a11a-26a65b087b20
+		summarizeBy: none
+		sourceColumn: record_type
+
+	column technology
+		dataType: string
+		lineageTag: da9cd6f1-64e7-4c88-886d-0224f64ad6ad
+		summarizeBy: none
+		sourceColumn: technology
+
+	partition Occurrences = m
+		mode: import
+		source =
+				let
+				    Source = #table({"LabelID", "Sheet", "excel_row", "supplier_raw", "record_type", "technology"}, {
+				        {"F001", "Demo", "2", "Fictional Alpha", "candidate_name", "Example A"},
+				        {"F001", "Demo", "3", "Fictional Alpha", "candidate_name", "Example B"},
+				        {"F002", "Demo", "4", "Fictional Beta", "candidate_name", "Example A"},
+				        {"F003", "Demo", "5", "Fictional Gamma", "candidate_name", "Example C"}
+				    }),
+				    Typed = Table.TransformColumnTypes(Source, {{"excel_row", Int64.Type}}, "en-GB")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,8 @@
+# Keep locally generated model caches and private data files out of Git.
+**/.pbi/
+**/.platform
+*.pbix
+*.xlsx
+*.xls
+*.csv
+*.zip

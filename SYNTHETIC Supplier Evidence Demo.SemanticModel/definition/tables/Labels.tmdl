@@ -1,0 +1,109 @@
+table Labels
+	lineageTag: b815a6bd-cf74-49ef-a311-ca890628b4f9
+
+	measure 'Candidate Labels' = COUNTROWS(Labels)
+		formatString: 0
+		lineageTag: c8b15292-7719-4b4a-bb1b-6e37f989edf5
+
+	measure 'Reviewed Labels' = CALCULATE([Candidate Labels], KEEPFILTERS(Labels[Review status] = "Reviewed"))
+		formatString: 0
+		lineageTag: 85d4fa3d-3e65-4da4-8047-c7e6515ab31f
+
+	measure 'Classified Labels' = CALCULATE([Candidate Labels], KEEPFILTERS(Labels[Classification status] = "Classified"))
+		formatString: 0
+		lineageTag: ac705229-1bf3-4fb7-b973-4527caa8379d
+
+	measure 'Not Reviewed' = CALCULATE([Candidate Labels], KEEPFILTERS(Labels[Review status] = "Not reviewed"))
+		formatString: 0
+		lineageTag: dc8f6f98-3ffe-4752-ba9e-fa5df921517e
+
+	measure 'Reviewed Unresolved' = [Reviewed Labels] - [Classified Labels]
+		formatString: 0
+		lineageTag: b14e8ca7-1f0d-40d3-a8c0-1a089b722b67
+
+	measure 'Review Coverage %' = DIVIDE([Reviewed Labels], [Candidate Labels])
+		formatString: 0.0%
+		lineageTag: e1a2b0c3-0105-467a-b837-10d30ab7145b
+
+	column LabelID
+		dataType: string
+		lineageTag: 913a0e97-9bcd-4ec0-bc7d-8607fd06bebe
+		summarizeBy: none
+		sourceColumn: LabelID
+
+	column 'Supplier label'
+		dataType: string
+		lineageTag: a7f959a6-d13b-4ce4-8cc3-401c08f027e4
+		summarizeBy: none
+		sourceColumn: Supplier label
+
+	column 'Review status'
+		dataType: string
+		lineageTag: e9b045be-0bed-4cc7-b17e-6b59a9d0f277
+		summarizeBy: none
+		sourceColumn: Review status
+
+	column 'Classification status'
+		dataType: string
+		lineageTag: 53b0d1d3-84c2-4724-a734-1463b0ad4e88
+		summarizeBy: none
+		sourceColumn: Classification status
+
+	column 'Evidence category'
+		dataType: string
+		lineageTag: c8d69334-e568-4a5c-b6c7-5d75fca7d7ee
+		summarizeBy: none
+		sourceColumn: Evidence category
+
+	column 'Identity status'
+		dataType: string
+		lineageTag: 61772edf-da86-4139-bee8-47a513988510
+		summarizeBy: none
+		sourceColumn: Identity status
+
+	column 'Public reporting entity'
+		dataType: string
+		lineageTag: 374a0232-fc5e-42ed-98ec-4dd69fafaa93
+		summarizeBy: none
+		sourceColumn: Public reporting entity
+
+	column 'Review date'
+		dataType: string
+		lineageTag: 386862e6-dc68-4b16-ba1e-49f2b46ca357
+		summarizeBy: none
+		sourceColumn: Review date
+
+	column 'Assessment scope'
+		dataType: string
+		lineageTag: 53f1bfdc-038c-4b58-b837-3679aa43b78d
+		summarizeBy: none
+		sourceColumn: Assessment scope
+
+	column 'Classification reason'
+		dataType: string
+		lineageTag: 3d67449b-e582-421d-8005-ebe0ff13c258
+		summarizeBy: none
+		sourceColumn: Classification reason
+
+	column 'Next action'
+		dataType: string
+		lineageTag: 549fd3ae-e674-4bbd-b8d7-f2e712b08a3e
+		summarizeBy: none
+		sourceColumn: Next action
+
+	partition Labels = m
+		mode: import
+		source =
+				let
+				    Source = #table({"LabelID", "Supplier label", "Review status", "Classification status", "Evidence category", "Identity status", "Public reporting entity", "Review date", "Assessment scope", "Classification reason", "Next action"}, {
+				        {"F001", "Fictional Alpha", "Reviewed", "Classified", "Example category", "Fictional identity", "Fictional Alpha", "2026-01-01", "Fictional exercise", "Example evidence", "None"},
+				        {"F002", "Fictional Beta", "Reviewed", "Unassessed", "UNASSESSED", "Fictional identity", "Fictional Beta", "2026-01-01", "Fictional exercise", "Insufficient fictional evidence", "Review example"},
+				        {"F003", "Fictional Gamma", "Not reviewed", "Unassessed", "UNASSESSED", "Fictional identity", "Fictional Gamma", "", "Fictional exercise", "Not reviewed", "Review example"}
+				    })
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

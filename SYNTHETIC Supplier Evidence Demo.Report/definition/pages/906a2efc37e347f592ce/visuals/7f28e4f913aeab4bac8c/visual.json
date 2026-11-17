@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "7f28e4f913aeab4bac8c",
+  "position": {
+    "x": 40,
+    "y": 5,
+    "z": 2581,
+    "height": 100,
+    "width": 1200,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "SUPPLIER EXPLORER",
+                    "textStyle": {
+                      "fontSize": "25pt",
+                      "fontFamily": "Segoe UI",
+                      "fontWeight": "bold",
+                      "color": "#123344"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "FICTIONAL DEMO | Choose one label. Overview compares all labels.",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#35566A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Supplier Explorer. Choose one fictional supplier; use Overview to compare all labels.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

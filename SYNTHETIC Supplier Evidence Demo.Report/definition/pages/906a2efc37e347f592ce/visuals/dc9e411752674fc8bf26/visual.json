@@ -1,0 +1,152 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "dc9e411752674fc8bf26",
+  "position": {
+    "x": 40,
+    "y": 545,
+    "z": 2580,
+    "height": 145,
+    "width": 1200,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Evidence"
+                    }
+                  },
+                  "Property": "evidence_id"
+                }
+              },
+              "queryRef": "Evidence.evidence_id",
+              "nativeQueryRef": "evidence_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Evidence"
+                    }
+                  },
+                  "Property": "claim_kind"
+                }
+              },
+              "queryRef": "Evidence.claim_kind",
+              "nativeQueryRef": "claim_kind"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Evidence"
+                    }
+                  },
+                  "Property": "source_title"
+                }
+              },
+              "queryRef": "Evidence.source_title",
+              "nativeQueryRef": "source_title"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Evidence"
+                    }
+                  },
+                  "Property": "scope"
+                }
+              },
+              "queryRef": "Evidence.scope",
+              "nativeQueryRef": "scope"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#123344'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Example evidence for the selected supplier. An empty table means no example claim is recorded.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "fa7744b79e8c4a2e96dc",
+  "position": {
+    "x": 40,
+    "y": 405,
+    "z": 3340,
+    "height": 285,
+    "width": 1200,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labels"
+                    }
+                  },
+                  "Property": "Supplier label"
+                }
+              },
+              "queryRef": "Labels.Supplier label",
+              "nativeQueryRef": "Supplier label"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labels"
+                    }
+                  },
+                  "Property": "Review status"
+                }
+              },
+              "queryRef": "Labels.Review status",
+              "nativeQueryRef": "Review status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labels"
+                    }
+                  },
+                  "Property": "Classification status"
+                }
+              },
+              "queryRef": "Labels.Classification status",
+              "nativeQueryRef": "Classification status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labels"
+                    }
+                  },
+                  "Property": "Evidence category"
+                }
+              },
+              "queryRef": "Labels.Evidence category",
+              "nativeQueryRef": "Evidence category"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#123344'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fictional supplier review table. Select a row to filter the overview cards; select it again to reset.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
